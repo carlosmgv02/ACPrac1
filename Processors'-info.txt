@@ -1,0 +1,61 @@
+
+# 1. TipusCahce (dl1)
+# 2. numConjunts (Tamany Total * 1024 bytes / 32 bits) (256)
+# 3. Tamany Bloc (16)
+# 4. Asociativitat (2)
+# 5. l
+#						:name:nsets:bsize:assoc:repl
+# -> sim-outorder -cache:dl1 dl1:256:16:2:l -> Cache DL1 8 Kb
+# -> sim-outorder -cache:il1 il1:256:16:2:l -> Cache IL1 8 Kb
+# -> sim-outorder -cache:dl2 dl2:4096:32:4:l -> Cache UL2 8 Kb
+
+Intel:
+	- Cores: 16 (8P + 8E)
+	- Threads: 24
+	- L1: None?
+	- L2: 14 MB -> numConjunts = 458752
+	- L3: 30 MB -> numConjunts = 983040
+
+#	L1 Cache 	64K (per core)
+#	L2 Cache 	14 MB (shared)
+#	L3 Cache 	30 MB (shared)
+#	TDP			150 W
+#	Turbo		241 W
+#	Technology	10 nm
+
+AMD:
+	- Cores: 8
+	- Threads: 16
+	- L1: 512 KB -> numConjunts = 16384
+	- L2: 4 MB -> numConjunts = 131072
+	- L3: 96 MB -> numConjunts = 3145728
+
+#	L1i cache 	32 kB/core
+#	L1d cache 	32 kB/core
+#	L2 cache 	512 kB/core
+#	L3 cache 	1× 96 MB
+#	TDP			105 W
+#	Technology	7 nm
+
+
+Pagines Benchmarks:
+
+	Intel:
+		- https://www.electroniclinic.com/intel-core-i9-12900ks-complete-review-with-benchmarks/
+		- https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i9-12900KS&id=4813
+		- https://www.cpu-monkey.com/en/cpu-intel_core_i9_12900ks
+		- Cinebench R23: https://overclock3d.net/reviews/cpu_mainboard/intel_core_i9-12900ks_review/8
+
+
+	AMD:
+		- https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+7+5800X3D&id=4823
+		- https://cpu.userbenchmark.com/SpeedTest/1817839/AMD-Ryzen-7-5800X3D-8-Core-Processor
+		- https://www.cpu-monkey.com/en/cpu-amd_ryzen_7_5800x3d
+		- Cinebench R23: https://overclock3d.net/reviews/cpu_mainboard/amd_ryzen_7_5800x3d_review/8
+
+
+
+
+
+
+
