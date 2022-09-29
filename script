@@ -11,4 +11,8 @@ amdDir="/home/milax/Documents/GitHub/ACPrac1/Resultats/AMD"
 
 processor="Intel"
 
-sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:
+sim-outorder -fastfwd 100000000 \
+-max:inst 100000000 \
+-cache:il1 CACHE_IL1:8:32:8:l \
+-redir:sim $intelDir/$tasca /lib/specs2000/ammp/exe/ammp.exe < ammp.in > $ammp/ammp.out 2> $ammp/ammp.err
+
