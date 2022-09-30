@@ -6,7 +6,7 @@ ammp="/home/milax/Documents/GitHub/ACPrac1/Resultats/"
 
 intelDir="/home/milax/Documents/GitHub/ACPrac1/Resultats/Intel"
 amdDir="/home/milax/Documents/GitHub/ACPrac1/Resultats/AMD"
-
+tasca="firstSim.txt"
 #SIMULACIONES
 
 processor="Intel"
@@ -14,5 +14,10 @@ processor="Intel"
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
 -cache:il1 CACHE_IL1:8:32:8:l \
--redir:sim $intelDir/$tasca /lib/specs2000/ammp/exe/ammp.exe < ammp.in > $ammp/ammp.out 2> $ammp/ammp.err
+-fetch:ifqsize 32 \
+-decode:width 6 \
+-issue:width 6 \
+-commit:width 12 \
+-redir:sim $intelDir/$tasca /lib/specs2000/ammp/exe/ammp.exe < ammp.in > $ammp/ammp.out 2> $ammp/ammp.err \
 
+echo "done"
