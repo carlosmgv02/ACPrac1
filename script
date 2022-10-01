@@ -1,23 +1,35 @@
-#! /bin/bash
+    #! /bin/bash
 
 #Ens situem al directori corresponent per a que es trobin els fitxers necessaris per a fer les simulacions.
 cd /lib/specs2000/ammp/data/ref
-ammp="/home/milax/Documents/GitHub/ACPrac1/Resultats/"
+ammp="/home/milax/Documents/GitHub/ACPrac1/Resultats/ammp"
 
-intelDir="/home/milax/Documents/GitHub/ACPrac1/Resultats/Intel"
-amdDir="/home/milax/Documents/GitHub/ACPrac1/Resultats/AMD"
-tasca="firstSim.txt"
+intelDir=$ammp"/Intel"
+amdDir=$ammp"/AMD"
+
 #SIMULACIONES
 
 processor="Intel"
+tasca="Primeraprova"
+
+fetch=8
+decode=8
+issue=8
+commit=8
+
+echo $fetch
+
 
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
 -cache:il1 CACHE_IL1:8:32:8:l \
--fetch:ifqsize 32 \
--decode:width 6 \
--issue:width 6 \
--commit:width 12 \
--redir:sim $intelDir/$tasca /lib/specs2000/ammp/exe/ammp.exe < ammp.in > $ammp/ammp.out 2> $ammp/ammp.err \
+-fetch:ifqsize $fetch \
+-decode:width $decode \
+-issue:width $issue \
+-commit:width $commit \
+-redir:sim $intelDir/$tasca /lib/specs2000/ammp/exe/ammp.exe < ammp.in > $ammp/ammp.out 2> $ammp/ammp.err
 
-echo "done"
+#/lib/specs2000/ammp/exe/ammp.exe < ammp.in > $ammp/ammp.out 2> $ammp/ammp.err
+
+sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:8:32:8:l -redir:sim $intelDir/$tasca /lib/specs2000/ammp/exe/ammp.exe < ammp.in > $ammp/ammp.out 2> $ammp/ammp.err
+
