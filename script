@@ -1,35 +1,219 @@
-    #! /bin/bash
+#! /bin/bash
 
 #Ens situem al directori corresponent per a que es trobin els fitxers necessaris per a fer les simulacions.
-cd /lib/specs2000/ammp/data/ref
-ammp="/home/milax/Documents/GitHub/ACPrac1/Resultats/ammp"
 
-intelDir=$ammp"/Intel"
-amdDir=$ammp"/AMD"
+
+
+#directoris on guardarem tot //falten per crear alguns!!!
+ammp="/home/milax/Documents/GitHub/ACPrac1/Resultats/ammp"
+eon="/home/milax/Documents/GitHub/ACPrac1/Resultats/eon"
+equake="/home/milax/Documents/GitHub/ACPrac1/Resultats/equake"
+gap="/home/milax/Documents/GitHub/ACPrac1/Resultats/gap"
+mesa="/home/milax/Documents/GitHub/ACPrac1/Resultats/mesa"
+
+
+
+
+<<com
+:'
+• ammp: ammp < ammp.in > ammp.out 2> ammp.err
+• eon: eon chair.control.cook chair.camera chair.surfaces chair.cook.ppm ppm pixels_out.cook > cook_log.out 2> cook_log.err
+• equake: equake < inp.in > inp.out 2> inp.err
+• gap: gap -l ./ -q -m 192M < ref.in > ref.out 2> ref.err
+• mesa: mesa -frames 1000 -meshfile mesa.in -ppmfile mesa.ppm
+'
+com
 
 #SIMULACIONES
 
-processor="Intel"
-tasca="Primeraprova"
+
+
+    #Intel
+
+
+
+
 
 fetch=8
 decode=8
 issue=8
 commit=8
 
-echo $fetch
+ruu=10
+lsq=10
 
+memlat=10
+memwidth=10
+
+CACHE_IL1="8:32:8:l"
+CACHE_DL1=""
+CACHE_L2=""
+CACHE_L3=""
+
+#AMMP
+cd /lib/specs2000/ammp/data/ref
+intelDir=$ammp"/Intel"
+tasca="IntelAMMP.txt"
+echo $tasca
 
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
--cache:il1 CACHE_IL1:8:32:8:l \
+-cache:il1 CACHE_IL1:$CACHE_IL1 \
 -fetch:ifqsize $fetch \
 -decode:width $decode \
 -issue:width $issue \
 -commit:width $commit \
 -redir:sim $intelDir/$tasca /lib/specs2000/ammp/exe/ammp.exe < ammp.in > $ammp/ammp.out 2> $ammp/ammp.err
 
-#/lib/specs2000/ammp/exe/ammp.exe < ammp.in > $ammp/ammp.out 2> $ammp/ammp.err
+#EON
+cd /lib/specs2000/eon/data/ref
+intelDir=$eon"/Intel"
+tasca="IntelEON.txt"
+echo $tasca
 
-sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:8:32:8:l -redir:sim $intelDir/$tasca /lib/specs2000/ammp/exe/ammp.exe < ammp.in > $ammp/ammp.out 2> $ammp/ammp.err
+sim-outorder -fastfwd 100000000 \
+-max:inst 100000000 \
+-cache:il1 CACHE_IL1:$CACHE_IL1 \
+-fetch:ifqsize $fetch \
+-decode:width $decode \
+-issue:width $issue \
+-commit:width $commit \
+-redir:sim $intelDir/$tasca /lib/specs2000/eon/exe/eon.exe chair.control.cook chair.camera chair.surfaces chair.cook.ppm ppm pixels_out.cook > $eon/cook_log.out 2> $eon/cook_log.err
+    
+#EQUAKE
+cd /lib/specs2000/equake/data/ref
+intelDir=$equake"/Intel"
+tasca="IntelEQUAKE.txt"
+echo $tasca
+
+sim-outorder -fastfwd 100000000 \
+-max:inst 100000000 \
+-cache:il1 CACHE_IL1:$CACHE_IL1 \
+-fetch:ifqsize $fetch \
+-decode:width $decode \
+-issue:width $issue \
+-commit:width $commit \
+-redir:sim $intelDir/$tasca /lib/specs2000/equake/exe/equake.exe < inp.in > $equake/inp.out 2> $equake/inp.err
+    
+    
+#GAP
+cd /lib/specs2000/gap/data/ref
+intelDir=$gap/"Intel"
+tasca="IntelGAP.txt"
+echo $tasca
+
+sim-outorder -fastfwd 100000000 \
+-max:inst 100000000 \
+-cache:il1 CACHE_IL1:$CACHE_IL1 \
+-fetch:ifqsize $fetch \
+-decode:width $decode \
+-issue:width $issue \
+-commit:width $commit \
+-redir:sim $intelDir/$tasca /lib/specs2000/gap/exe/gap.exe -l /usr/lib/specs2000/gap/data/all -q -m 192M < ref.in > $gap/ref.out 2> $gap/ref.err
+
+#MESA
+cd /lib/specs2000/mesa/data/ref
+intelDir=$mesa/"Intel"
+tasca="IntelMESA.txt"
+echo $tasca
+
+sim-outorder -fastfwd 100000000 \
+-max:inst 100000000 \
+-cache:il1 CACHE_IL1:$CACHE_IL1 \
+-fetch:ifqsize $fetch \
+-decode:width $decode \
+-issue:width $issue \
+-commit:width $commit \
+-redir:sim $intelDir/$tasca /lib/specs2000/mesa/exe/mesa.exe -frames 1000 -meshfile mesa.in -ppmfile mesa.ppm
+
+
+    #AMD
+
+fetch=4
+decode=4
+issue=16
+commit=12
+
+CACHE_IL1="8:32:8:l"
+CACHE_DL1="8:32:8:l"
+CACHE_L2="8:512:8:l"
+CACHE_L3="1:"
+
+#AMMP
+cd /lib/specs2000/ammp/data/ref
+amdDir=$ammp"/AMD"
+tasca="AmdAMMP.txt"
+echo $tasca
+
+sim-outorder -fastfwd 100000000 \
+-max:inst 100000000 \
+-cache:il1 CACHE_IL1:$CACHE_IL1 \
+-fetch:ifqsize $fetch \
+-decode:width $decode \
+-issue:width $issue \
+-commit:width $commit \
+-redir:sim $amdDir/$tasca /lib/specs2000/ammp/exe/ammp.exe < ammp.in > $ammp/ammp.out 2> $ammp/ammp.err
+
+
+#EON
+
+cd /lib/specs2000/ammp/data/ref
+amdDir=$eon"/AMD"
+tasca="AmdEON.txt"
+echo $tasca
+
+sim-outorder -fastfwd 100000000 \
+-max:inst 100000000 \
+-cache:il1 CACHE_IL1:$CACHE_IL1 \
+-fetch:ifqsize $fetch \
+-decode:width $decode \
+-issue:width $issue \
+-commit:width $commit \
+-redir:sim $amdDir/$tasca /lib/specs2000/eon/exe/eon.exe chair.control.cook chair.camera chair.surfaces chair.cook.ppm ppm pixels_out.cook > $eon/cook_log.out 2> $eon/cook_log.err
+ 
+#EQUAKE
+cd /lib/specs2000/equake/data/ref
+amdDir=$equake"/AMD"
+tasca="AmdEQUAKE.txt"
+echo $tasca
+
+sim-outorder -fastfwd 100000000 \
+-max:inst 100000000 \
+-cache:il1 CACHE_IL1:$CACHE_IL1 \
+-fetch:ifqsize $fetch \
+-decode:width $decode \
+-issue:width $issue \
+-commit:width $commit \
+-redir:sim $amdDir/$tasca /lib/specs2000/equake/exe/equake.exe < inp.in > $equake/inp.out 2> $equake/inp.err
+    
+    
+#GAP
+cd /lib/specs2000/equake/data/ref
+amdDir=$gap"/AMD"
+tasca="AmdGAP.txt"
+echo $tasca
+
+sim-outorder -fastfwd 100000000 \
+-max:inst 100000000 \
+-cache:il1 CACHE_IL1:$CACHE_IL1 \
+-fetch:ifqsize $fetch \
+-decode:width $decode \
+-issue:width $issue \
+-commit:width $commit \
+-redir:sim $amdDir/$tasca /lib/specs2000/gap/exe/gap.exe -l /usr/lib/specs2000/gap/data/all -q -m 192M < ref.in > $gap/ref.out 2> $gap/ref.err
+
+#MESA
+cd /lib/specs2000/equake/data/ref
+amdDir=$mesa"/AMD"
+tasca="AmdMESA.txt"
+echo $tasca
+
+sim-outorder -fastfwd 100000000 \
+-max:inst 100000000 \
+-cache:il1 CACHE_IL1:$CACHE_IL1 \
+-fetch:ifqsize $fetch \
+-decode:width $decode \
+-issue:width $issue \
+-commit:width $commit \
+-redir:sim $amdDir/$tasca /lib/specs2000/mesa/exe/mesa.exe -frames 1000 -meshfile mesa.in -ppmfile mesa.ppm
 
