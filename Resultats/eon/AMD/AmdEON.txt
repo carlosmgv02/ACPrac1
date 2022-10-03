@@ -6,9 +6,9 @@ entity, or for any commercial purpose, without the prior written permission
 of SimpleScalar, LLC (info@simplescalar.com).
 
 warning: section `.comment' ignored...
-sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:64:32:8:l -cache:dl1 CACHE_DL1:64:32:8:l -cache:il2 CACHE_DL2:1024:512:8:l -fetch:ifqsize 4 -decode:width 4 -issue:width 16 -commit:width 12 -ruu:size 64 -lsq:size 4 -mem:lat 16 2 -mem:width 64 -redir:sim /home/milax/Documents/GitHub/ACPrac1/Resultats/eon/AMD/AmdEON.txt /lib/specs2000/eon/exe/eon.exe chair.control.cook chair.camera chair.surfaces chair.cook.ppm ppm pixels_out.cook 
+sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:64:32:8:l -cache:dl1 CACHE_DL1:64:32:8:l -cache:il2 CACHE_DL2:1024:512:8:l -fetch:ifqsize 4 -decode:width 4 -issue:width 16 -commit:width 12 -ruu:size 64 -lsq:size 4 -mem:lat 16 2 -mem:width 64 -res:ialu 4 -res:imult 4 -res:memport 3 -res:fpalu 4 -res:fpmult 4 -redir:sim /home/milax/Documents/GitHub/ACPrac1/Resultats/eon/AMD/AmdEON.txt /lib/specs2000/eon/exe/eon.exe chair.control.cook chair.camera chair.surfaces chair.cook.ppm ppm pixels_out.cook 
 
-sim: simulation started @ Mon Oct  3 18:32:09 2022, options follow:
+sim: simulation started @ Mon Oct  3 20:16:43 2022, options follow:
 
 sim-outorder: This simulator implements a very detailed out-of-order issue
 superscalar processor with a two-level memory system and speculative
@@ -52,9 +52,9 @@ latency of all pipeline operations.
 -cache:dl2       ul2:1024:64:4:l # l2 data cache config, i.e., {<config>|none}
 -cache:dl2lat               6 # l2 data cache hit latency (in cycles)
 -cache:il1       CACHE_IL1:64:32:8:l # l1 inst cache config, i.e., {<config>|dl1|dl2|none}
--cache:il1lat               1 # l1 instruction cache hit latency (in cycles)
--cache:il2       CACHfile eon.dat required for eon to run
-E_DL2:1024:512:8:l # l2 instruction cache config, i.e., {<config>|dl2|none}
+-cache:il1lat               1 #file eon.dat required for eon to run
+ l1 instruction cache hit latency (in cycles)
+-cache:il2       CACHE_DL2:1024:512:8:l # l2 instruction cache config, i.e., {<config>|dl2|none}
 -cache:il2lat               6 # l2 instruction cache hit latency (in cycles)
 -cache:flush            false # flush caches on system calls
 -cache:icompress        false # convert 64-bit inst addresses to 32-bit inst equivalents
@@ -64,10 +64,10 @@ E_DL2:1024:512:8:l # l2 instruction cache config, i.e., {<config>|dl2|none}
 -tlb:dtlb        dtlb:32:4096:4:l # data TLB config, i.e., {<config>|none}
 -tlb:lat                   30 # inst/data TLB miss latency (in cycles)
 -res:ialu                   4 # total number of integer ALU's available
--res:imult                  1 # total number of integer multiplier/dividers available
--res:memport                2 # total number of memory system ports available (to CPU)
+-res:imult                  4 # total number of integer multiplier/dividers available
+-res:memport                3 # total number of memory system ports available (to CPU)
 -res:fpalu                  4 # total number of floating point ALU's available
--res:fpmult                 1 # total number of floating point multiplier/dividers available
+-res:fpmult                 4 # total number of floating point multiplier/dividers available
 # -pcstat              <null> # profile stat(s) against text addr's (mult uses ok)
 -bugcompat              false # operate in backward-compatible bugs mode (for testing only)
 
@@ -262,6 +262,6 @@ ld_target_big_endian              0 # target executable endian-ness, non-zero if
 mem.page_count                  153 # total number of pages allocated
 mem.page_mem                  1224k # total size of memory pages allocated
 mem.ptab_misses                1522 # total first level page table misses
-mem.ptab_accesses           2852940 # total page table accesses
+mem.ptab_accesses           2852084 # total page table accesses
 mem.ptab_miss_rate           0.0005 # first level page table miss rate
 
