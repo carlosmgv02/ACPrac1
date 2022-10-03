@@ -6,9 +6,9 @@ entity, or for any commercial purpose, without the prior written permission
 of SimpleScalar, LLC (info@simplescalar.com).
 
 warning: section `.comment' ignored...
-sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:8:32:8:l -fetch:ifqsize 4 -decode:width 4 -issue:width 16 -commit:width 12 -redir:sim /home/milax/Documents/GitHub/ACPrac1/Resultats/mesa/AMD/AmdMESA.txt /lib/specs2000/mesa/exe/mesa.exe -frames 1000 -meshfile mesa.in -ppmfile mesa.ppm 
+sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:64:32:8:l -cache:dl1 CACHE_DL1:64:32:8:l -cache:il2 CACHE_DL2:1024:512:8:l -fetch:ifqsize 4 -decode:width 4 -issue:width 16 -commit:width 12 -ruu:size 64 -lsq:size 4 -mem:lat 16 2 -mem:width 64 -redir:sim /home/milax/Documents/GitHub/ACPrac1/Resultats/mesa/AMD/AmdMESA.txt /lib/specs2000/mesa/exe/mesa.exe -frames 1000 -meshfile mesa.in -ppmfile mesa.ppm 
 
-sim: simulation started @ Sun Oct  2 16:47:55 2022, options follow:
+sim: simulation started @ Mon Oct  3 18:32:51 2022, options follow:
 
 sim-outorder: This simulator implements a very detailed out-of-order issue
 superscalar processor with a two-level memory system and speculative
@@ -45,20 +45,20 @@ latency of all pipeline operations.
 -issue:inorder          false # run pipeline with in-order issue
 -issue:wrongpath         true # issue instructions down wrong execution paths
 -commit:width              12 # instruction commit B/W (insts/cycle)
--ruu:size                  16 # register update unit (RUU) size
--lsq:size                   8 # load/store queue (LSQ) size
--cache:dl1       dl1:128:32:4:l # l1 data cache config, i.e., {<config>|none}
+-ruu:size                  64 # register update unit (RUU) size
+-lsq:size                   4 # load/store queue (LSQ) size
+-cache:dl1       CACHE_DL1:64:32:8:l # l1 data cache config, i.e., {<config>|none}
 -cache:dl1lat               1 # l1 data cache hit latency (in cycles)
 -cache:dl2       ul2:1024:64:4:l # l2 data cache config, i.e., {<config>|none}
 -cache:dl2lat               6 # l2 data cache hit latency (in cycles)
--cache:il1       CACHE_IL1:8:32:8:l # l1 inst cache config, i.e., {<config>|dl1|dl2|none}
+-cache:il1       CACHE_IL1:64:32:8:l # l1 inst cache config, i.e., {<config>|dl1|dl2|none}
 -cache:il1lat               1 # l1 instruction cache hit latency (in cycles)
--cache:il2                dl2 # l2 instruction cache config, i.e., {<config>|dl2|none}
+-cache:il2       CACHE_DL2:1024:512:8:l # l2 instruction cache config, i.e., {<config>|dl2|none}
 -cache:il2lat               6 # l2 instruction cache hit latency (in cycles)
 -cache:flush            false # flush caches on system calls
 -cache:icompress        false # convert 64-bit inst addresses to 32-bit inst equivalents
--mem:lat         18 2 # memory access latency (<first_chunk> <inter_chunk>)
--mem:width                  8 # memory access bus width (in bytes)
+-mem:lat         16 2 # memory access latency (<first_chunk> <inter_chunk>)
+-mem:width                 64 # memory access bus width (in bytes)
 -tlb:itlb        itlb:16:4096:4:l # instruction TLB config, i.e., {<config>|none}
 -tlb:dtlb        dtlb:32:4096:4:l # data TLB config, i.e., {<config>|none}
 -tlb:lat                   30 # inst/data TLB miss latency (in cycles)
@@ -198,16 +198,26 @@ CACHE_IL1.miss_rate    <error: divide by zero> # miss rate (i.e., misses/ref)
 CACHE_IL1.repl_rate    <error: divide by zero> # replacement rate (i.e., repls/ref)
 CACHE_IL1.wb_rate      <error: divide by zero> # writeback rate (i.e., wrbks/ref)
 CACHE_IL1.inv_rate     <error: divide by zero> # invalidation rate (i.e., invs/ref)
-dl1.accesses                      0 # total number of accesses
-dl1.hits                          0 # total number of hits
-dl1.misses                        0 # total number of misses
-dl1.replacements                  0 # total number of replacements
-dl1.writebacks                    0 # total number of writebacks
-dl1.invalidations                 0 # total number of invalidations
-dl1.miss_rate          <error: divide by zero> # miss rate (i.e., misses/ref)
-dl1.repl_rate          <error: divide by zero> # replacement rate (i.e., repls/ref)
-dl1.wb_rate            <error: divide by zero> # writeback rate (i.e., wrbks/ref)
-dl1.inv_rate           <error: divide by zero> # invalidation rate (i.e., invs/ref)
+CACHE_DL2.accesses                0 # total number of accesses
+CACHE_DL2.hits                    0 # total number of hits
+CACHE_DL2.misses                  0 # total number of misses
+CACHE_DL2.replacements            0 # total number of replacements
+CACHE_DL2.writebacks              0 # total number of writebacks
+CACHE_DL2.invalidations            0 # total number of invalidations
+CACHE_DL2.miss_rate    <error: divide by zero> # miss rate (i.e., misses/ref)
+CACHE_DL2.repl_rate    <error: divide by zero> # replacement rate (i.e., repls/ref)
+CACHE_DL2.wb_rate      <error: divide by zero> # writeback rate (i.e., wrbks/ref)
+CACHE_DL2.inv_rate     <error: divide by zero> # invalidation rate (i.e., invs/ref)
+CACHE_DL1.accesses                0 # total number of accesses
+CACHE_DL1.hits                    0 # total number of hits
+CACHE_DL1.misses                  0 # total number of misses
+CACHE_DL1.replacements            0 # total number of replacements
+CACHE_DL1.writebacks              0 # total number of writebacks
+CACHE_DL1.invalidations            0 # total number of invalidations
+CACHE_DL1.miss_rate    <error: divide by zero> # miss rate (i.e., misses/ref)
+CACHE_DL1.repl_rate    <error: divide by zero> # replacement rate (i.e., repls/ref)
+CACHE_DL1.wb_rate      <error: divide by zero> # writeback rate (i.e., wrbks/ref)
+CACHE_DL1.inv_rate     <error: divide by zero> # invalidation rate (i.e., invs/ref)
 ul2.accesses                      0 # total number of accesses
 ul2.hits                          0 # total number of hits
 ul2.misses                        0 # total number of misses
@@ -251,6 +261,6 @@ ld_target_big_endian              0 # target executable endian-ness, non-zero if
 mem.page_count                  274 # total number of pages allocated
 mem.page_mem                  2192k # total size of memory pages allocated
 mem.ptab_misses                2434 # total first level page table misses
-mem.ptab_accesses          12495684 # total page table accesses
+mem.ptab_accesses          12495676 # total page table accesses
 mem.ptab_miss_rate           0.0002 # first level page table miss rate
 

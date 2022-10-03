@@ -30,25 +30,20 @@ com
 
     #Intel
 
-
-
-
-
 fetch=8
-decode=8
-issue=8
-commit=8
+decode=6
+issue=6
+commit=12
 
-ruu=10
-lsq=10
+ruu=512
+lsq=4
 
-memlat=10
-memwidth=10
+memlat="16 2"
+memwidth=64
 
-CACHE_IL1="8:32:8:l"
-CACHE_DL1=""
-CACHE_L2=""
-CACHE_L3=""
+CACHE_IL1="64:64:8:l"
+CACHE_DL1="64:32:8:l"
+CACHE_L2="2048:16384:4:l"
 
 #AMMP
 cd /lib/specs2000/ammp/data/ref
@@ -59,10 +54,16 @@ echo $tasca
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \
+-cache:dl1 CACHE_DL1:$CACHE_DL1 \
+-cache:il2 CACHE_DL2:$CACHE_L2 \
 -fetch:ifqsize $fetch \
 -decode:width $decode \
 -issue:width $issue \
 -commit:width $commit \
+-ruu:size $ruu \
+-lsq:size $lsq \
+-mem:lat $memlat \
+-mem:width $memwidth \
 -redir:sim $intelDir/$tasca /lib/specs2000/ammp/exe/ammp.exe < ammp.in > $ammp/ammp.out 2> $ammp/ammp.err
 
 #EON
@@ -74,10 +75,16 @@ echo $tasca
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \
+-cache:dl1 CACHE_DL1:$CACHE_DL1 \
+-cache:il2 CACHE_DL2:$CACHE_L2 \
 -fetch:ifqsize $fetch \
 -decode:width $decode \
 -issue:width $issue \
 -commit:width $commit \
+-ruu:size $ruu \
+-lsq:size $lsq \
+-mem:lat $memlat \
+-mem:width $memwidth \
 -redir:sim $intelDir/$tasca /lib/specs2000/eon/exe/eon.exe chair.control.cook chair.camera chair.surfaces chair.cook.ppm ppm pixels_out.cook > $eon/cook_log.out 2> $eon/cook_log.err
     
 #EQUAKE
@@ -89,10 +96,16 @@ echo $tasca
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \
+-cache:dl1 CACHE_DL1:$CACHE_DL1 \
+-cache:il2 CACHE_DL2:$CACHE_L2 \
 -fetch:ifqsize $fetch \
 -decode:width $decode \
 -issue:width $issue \
 -commit:width $commit \
+-ruu:size $ruu \
+-lsq:size $lsq \
+-mem:lat $memlat \
+-mem:width $memwidth \
 -redir:sim $intelDir/$tasca /lib/specs2000/equake/exe/equake.exe < inp.in > $equake/inp.out 2> $equake/inp.err
     
     
@@ -105,10 +118,16 @@ echo $tasca
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \
+-cache:dl1 CACHE_DL1:$CACHE_DL1 \
+-cache:il2 CACHE_DL2:$CACHE_L2 \
 -fetch:ifqsize $fetch \
 -decode:width $decode \
 -issue:width $issue \
 -commit:width $commit \
+-ruu:size $ruu \
+-lsq:size $lsq \
+-mem:lat $memlat \
+-mem:width $memwidth \
 -redir:sim $intelDir/$tasca /lib/specs2000/gap/exe/gap.exe -l /usr/lib/specs2000/gap/data/all -q -m 192M < ref.in > $gap/ref.out 2> $gap/ref.err
 
 #MESA
@@ -120,10 +139,16 @@ echo $tasca
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \
+-cache:dl1 CACHE_DL1:$CACHE_DL1 \
+-cache:il2 CACHE_DL2:$CACHE_L2 \
 -fetch:ifqsize $fetch \
 -decode:width $decode \
 -issue:width $issue \
 -commit:width $commit \
+-ruu:size $ruu \
+-lsq:size $lsq \
+-mem:lat $memlat \
+-mem:width $memwidth \
 -redir:sim $intelDir/$tasca /lib/specs2000/mesa/exe/mesa.exe -frames 1000 -meshfile mesa.in -ppmfile mesa.ppm
 
 
@@ -134,10 +159,17 @@ decode=4
 issue=16
 commit=12
 
-CACHE_IL1="8:32:8:l"
-CACHE_DL1="8:32:8:l"
-CACHE_L2="8:512:8:l"
-CACHE_L3="1:"
+ruu=64
+lsq=4
+
+memwidth=64
+memlat="16 2"
+
+CACHE_IL1="64:32:8:l"
+CACHE_DL1="64:32:8:l"
+CACHE_L2="1024:512:8:l"
+
+
 
 #AMMP
 cd /lib/specs2000/ammp/data/ref
@@ -148,10 +180,16 @@ echo $tasca
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \
+-cache:dl1 CACHE_DL1:$CACHE_DL1 \
+-cache:il2 CACHE_DL2:$CACHE_L2 \
 -fetch:ifqsize $fetch \
 -decode:width $decode \
 -issue:width $issue \
 -commit:width $commit \
+-ruu:size $ruu \
+-lsq:size $lsq \
+-mem:lat $memlat \
+-mem:width $memwidth \
 -redir:sim $amdDir/$tasca /lib/specs2000/ammp/exe/ammp.exe < ammp.in > $ammp/ammp.out 2> $ammp/ammp.err
 
 
@@ -165,10 +203,16 @@ echo $tasca
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \
+-cache:dl1 CACHE_DL1:$CACHE_DL1 \
+-cache:il2 CACHE_DL2:$CACHE_L2 \
 -fetch:ifqsize $fetch \
 -decode:width $decode \
 -issue:width $issue \
 -commit:width $commit \
+-ruu:size $ruu \
+-lsq:size $lsq \
+-mem:lat $memlat \
+-mem:width $memwidth \
 -redir:sim $amdDir/$tasca /lib/specs2000/eon/exe/eon.exe chair.control.cook chair.camera chair.surfaces chair.cook.ppm ppm pixels_out.cook > $eon/cook_log.out 2> $eon/cook_log.err
  
 #EQUAKE
@@ -180,15 +224,21 @@ echo $tasca
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \
+-cache:dl1 CACHE_DL1:$CACHE_DL1 \
+-cache:il2 CACHE_DL2:$CACHE_L2 \
 -fetch:ifqsize $fetch \
 -decode:width $decode \
 -issue:width $issue \
 -commit:width $commit \
+-ruu:size $ruu \
+-lsq:size $lsq \
+-mem:lat $memlat \
+-mem:width $memwidth \
 -redir:sim $amdDir/$tasca /lib/specs2000/equake/exe/equake.exe < inp.in > $equake/inp.out 2> $equake/inp.err
     
     
 #GAP
-cd /lib/specs2000/equake/data/ref
+cd /lib/specs2000/gap/data/ref
 amdDir=$gap"/AMD"
 tasca="AmdGAP.txt"
 echo $tasca
@@ -196,14 +246,20 @@ echo $tasca
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \
+-cache:dl1 CACHE_DL1:$CACHE_DL1 \
+-cache:il2 CACHE_DL2:$CACHE_L2 \
 -fetch:ifqsize $fetch \
 -decode:width $decode \
 -issue:width $issue \
 -commit:width $commit \
+-ruu:size $ruu \
+-lsq:size $lsq \
+-mem:lat $memlat \
+-mem:width $memwidth \
 -redir:sim $amdDir/$tasca /lib/specs2000/gap/exe/gap.exe -l /usr/lib/specs2000/gap/data/all -q -m 192M < ref.in > $gap/ref.out 2> $gap/ref.err
 
 #MESA
-cd /lib/specs2000/equake/data/ref
+cd /lib/specs2000/mesa/data/ref
 amdDir=$mesa"/AMD"
 tasca="AmdMESA.txt"
 echo $tasca
@@ -211,9 +267,15 @@ echo $tasca
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \
+-cache:dl1 CACHE_DL1:$CACHE_DL1 \
+-cache:il2 CACHE_DL2:$CACHE_L2 \
 -fetch:ifqsize $fetch \
 -decode:width $decode \
 -issue:width $issue \
 -commit:width $commit \
+-ruu:size $ruu \
+-lsq:size $lsq \
+-mem:lat $memlat \
+-mem:width $memwidth \
 -redir:sim $amdDir/$tasca /lib/specs2000/mesa/exe/mesa.exe -frames 1000 -meshfile mesa.in -ppmfile mesa.ppm
 
