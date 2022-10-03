@@ -181,9 +181,9 @@ memport=3
 fpalu=4
 fpmult=4
 
-CACHE_IL1="64:32:8:l"
-CACHE_DL1="64:32:8:l"
-CACHE_L2="1024:512:8:l"
+CACHE_IL1="64:64:8:l"
+CACHE_DL1="64:64:8:l"
+CACHE_L2="1024:64:8:l"
 
 
 
