@@ -6,9 +6,9 @@ entity, or for any commercial purpose, without the prior written permission
 of SimpleScalar, LLC (info@simplescalar.com).
 
 warning: section `.comment' ignored...
-sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:64:64:8:l -cache:dl1 CACHE_DL1:64:64:8:l -cache:il2 CACHE_DL2:2048:64:8:l -fetch:ifqsize 8 -decode:width 6 -issue:width 6 -commit:width 12 -ruu:size 1024 -lsq:size 4 -mem:lat 16 2 -mem:width 64 -redir:sim /home/milax/Documents/GitHub/ACPrac1/Resultats/gap/Intel/IntelGAP_reorderBuffer.txt /lib/specs2000/gap/exe/gap.exe -l /usr/lib/specs2000/gap/data/all -q -m 192M 
+sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:64:64:8:l -cache:dl1 CACHE_DL1:64:64:8:l -cache:il2 CACHE_DL2:1024:64:8:l -fetch:ifqsize 4 -decode:width 4 -issue:width 16 -commit:width 12 -ruu:size 64 -lsq:size 4 -mem:lat 16 2 -mem:width 64 -res:ialu 4 -res:imult 4 -res:memport 3 -res:fpalu 4 -res:fpmult 4 -redir:sim /home/milax/Documents/GitHub/ACPrac1/Resultats/equake/AMD/AmdEQUAKE_reorderBuffer.txt /lib/specs2000/equake/exe/equake.exe 
 
-sim: simulation started @ Wed Oct  5 14:34:24 2022, options follow:
+sim: simulation started @ Wed Oct  5 14:09:31 2022, options follow:
 
 sim-outorder: This simulator implements a very detailed out-of-order issue
 superscalar processor with a two-level memory system and speculative
@@ -24,13 +24,13 @@ latency of all pipeline operations.
 -seed                       1 # random number generator seed (0 for timer seed)
 # -q                    false # initialize and terminate immediately
 # -chkpt               <null> # restore EIO trace execution from <fname>
-# -redir:sim     /home/milax/Documents/GitHub/ACPrac1/Resultats/gap/Intel/IntelGAP_reorderBuffer.txt # redirect simulator output to file (non-interactive only)
+# -redir:sim     /home/milax/Documents/GitHub/ACPrac1/Resultats/equake/AMD/AmdEQUAKE_reorderBuffer.txt # redirect simulator output to file (non-interactive only)
 # -redir:prog          <null> # redirect simulated program output to file
 -nice                       0 # simulator scheduling priority
 -max:inst           100000000 # maximum number of inst's to execute
 -fastfwd            100000000 # number of insts skipped before timing starts
 # -ptrace              <null> # generate pipetrace, i.e., <fname|stdout|stderr> <range>
--fetch:ifqsize              8 # instruction fetch queue size (in insts)
+-fetch:ifqsize              4 # instruction fetch queue size (in insts)
 -fetch:mplat                3 # extra branch mis-prediction latency
 -fetch:speed                1 # speed of front-end of machine relative to execution core
 -bpred                  bimod # branch predictor type {nottaken|taken|perfect|bimod|2lev|comb}
@@ -40,17 +40,16 @@ latency of all pipeline operations.
 -bpred:ras                  8 # return address stack size (0 for no return stack)
 -bpred:btb       512 4 # BTB config (<num_sets> <associativity>)
 # -bpred:spec_update       <null> # speculative predictors update in {ID|WB} (default non-spec)
--decode:width               6 # instruction decode B/W (insts/cycle)
--issue:width                6 # instruction issue B/W (insts/cycle)
+-decode:width               4 # instruction decode B/W (insts/cycle)
+-issue:width               16 # instruction issue B/W (insts/cycle)
 -issue:inorder          false # run pipeline with in-order issue
 -issue:wrongpath         true # issue instructions down wrong execution paths
 -commit:width              12 # instruction commit B/W (insts/cycle)
--ruu:size                1024 # register update unit (RUU) size
+-ruu:size                  64 # register update unit (RUU) size
 -lsq:size                   4 # load/store queue (LSQ) size
 -cache:dl1       CACHE_DL1:64:64:8:l # l1 data cache config, i.e., {<config>|none}
 -cache:dl1lat               1 # l1 data cache hit latency (in cycles)
 -cache:dl2       ul2:1024:64:4:l # l2 data cache config, i.e., {<config>|none}
 -cache:dl2lat               6 # l2 data cache hit latency (in cycles)
 -cache:il1       CACHE_IL1:64:64:8:l # l1 inst cache config, i.e., {<config>|dl1|dl2|none}
--cache:il1lat               1 # l1 instruction cache hit latency (in cycles)
--cache:il2       CACH
+-cache:il1lat               1 # l1 instruction cache hit latency (in/lib/specs2000/equake/exe/equake.exe: Reading nodes.

@@ -1,0 +1,2 @@
+EQUAKE:     
+sim_IPC                      1.9917 # instructions per cycle

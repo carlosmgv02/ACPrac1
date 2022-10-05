@@ -1,0 +1,2 @@
+GAP:     
+sim_IPC                      1.6993 # instructions per cycle

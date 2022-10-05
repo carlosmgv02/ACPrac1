@@ -1,0 +1,40 @@
+EON:     
+sim_IPC                      1.4349 # instructions per cycle
+EON:     
+sim_IPC                      1.4349 # instructions per cycle
+EON:     
+sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:64:64:8:l -cache:dl1 CACHE_DL1:64:64:8:l -cache:il2 CACHE_DL2:2048:64:8:l -fetch:ifqsize 8 -decode:width 6 -issue:width 6 -commit:width 12 -ruu:size 1024 -lsq:size 4 -mem:lat 16 2 -mem:width 64 -redir:sim /home/milax/Documents/GitHub/ACPrac1/Resultats/eon/Intel/IntelEON_reorderBuffer.txt /lib/specs2000/eon/exe/eon.exe chair.control.cook chair.camera chair.surfaces chair.cook.ppm ppm pixels_out.cook 
+-cache:dl1       CACHE_DL1:64:64:8:l # l1 data cache config, i.e., {<config>|none}
+-cache:il1       CACHE_IL1:64:64:8:l # l1 inst cache config, i.e., {<config>|dl1|dl2|none}
+-cache:il2       CACHE_DL2:2048:64:8:l # l2 instruction cache config, i.e., {<config>|dl2|none}
+CACHE_IL1.accesses        114491481 # total number of accesses
+CACHE_IL1.hits            114469212 # total number of hits
+CACHE_IL1.misses              22269 # total number of misses
+CACHE_IL1.replacements        21876 # total number of replacements
+CACHE_IL1.writebacks              0 # total number of writebacks
+CACHE_IL1.invalidations            0 # total number of invalidations
+CACHE_IL1.miss_rate          0.0002 # miss rate (i.e., misses/ref)
+CACHE_IL1.repl_rate          0.0002 # replacement rate (i.e., repls/ref)
+CACHE_IL1.wb_rate            0.0000 # writeback rate (i.e., wrbks/ref)
+CACHE_IL1.inv_rate           0.0000 # invalidation rate (i.e., invs/ref)
+CACHE_DL2.accesses            22269 # total number of accesses
+CACHE_DL2.hits                21850 # total number of hits
+CACHE_DL2.misses                419 # total number of misses
+CACHE_DL2.replacements            0 # total number of replacements
+CACHE_DL2.writebacks              0 # total number of writebacks
+CACHE_DL2.invalidations            0 # total number of invalidations
+CACHE_DL2.miss_rate          0.0188 # miss rate (i.e., misses/ref)
+CACHE_DL2.repl_rate          0.0000 # replacement rate (i.e., repls/ref)
+CACHE_DL2.wb_rate            0.0000 # writeback rate (i.e., wrbks/ref)
+CACHE_DL2.inv_rate           0.0000 # invalidation rate (i.e., invs/ref)
+CACHE_DL1.accesses         46212684 # total number of accesses
+CACHE_DL1.hits             46172878 # total number of hits
+CACHE_DL1.misses              39806 # total number of misses
+CACHE_DL1.replacements        39294 # total number of replacements
+CACHE_DL1.writebacks          20196 # total number of writebacks
+CACHE_DL1.invalidations            0 # total number of invalidations
+CACHE_DL1.miss_rate          0.0009 # miss rate (i.e., misses/ref)
+CACHE_DL1.repl_rate          0.0009 # replacement rate (i.e., repls/ref)
+CACHE_DL1.wb_rate            0.0004 # writeback rate (i.e., wrbks/ref)
+CACHE_DL1.inv_rate           0.0000 # invalidation rate (i.e., invs/ref)
+sim_IPC                      1.4349 # instructions per cycle
