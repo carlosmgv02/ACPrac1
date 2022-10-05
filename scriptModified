@@ -39,7 +39,7 @@ issue=6
 commit=12
 
 ruu=1024
-lsq=4
+lsq=8
 
 memlat="16 2"
 memwidth=64
@@ -191,7 +191,7 @@ issue=16
 commit=12
 
 ruu=64
-lsq=4
+lsq=8
 
 memwidth=64
 memlat="16 2"
