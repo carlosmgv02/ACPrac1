@@ -106,6 +106,41 @@ CACHE_DL1.wb_rate            0.0001 # writeback rate (i.e., wrbks/ref)
 CACHE_DL1.inv_rate           0.0000 # invalidation rate (i.e., invs/ref)
 sim_IPC                      1.9768 # instructions per cycle
 GAP:     
+sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:64:64:8:l -cache:dl1 CACHE_DL1:64:64:8:l -cache:il2 CACHE_DL2:1024:64:8:l -fetch:ifqsize 4 -decode:width 8 -issue:width 16 -commit:width 12 -ruu:size 64 -lsq:size 4 -mem:lat 16 2 -mem:width 64 -res:ialu 4 -res:imult 4 -res:memport 3 -res:fpalu 4 -res:fpmult 4 -redir:sim /home/milax/Documents/GitHub/ACPrac1/Resultats/gap/AMD/AmdGAP_decodeChange.txt /lib/specs2000/gap/exe/gap.exe -l /usr/lib/specs2000/gap/data/all -q -m 192M 
+-cache:dl1       CACHE_DL1:64:64:8:l # l1 data cache config, i.e., {<config>|none}
+-cache:il1       CACHE_IL1:64:64:8:l # l1 inst cache config, i.e., {<config>|dl1|dl2|none}
+-cache:il2       CACHE_DL2:1024:64:8:l # l2 instruction cache config, i.e., {<config>|dl2|none}
+CACHE_IL1.accesses        106536804 # total number of accesses
+CACHE_IL1.hits            106531328 # total number of hits
+CACHE_IL1.misses               5476 # total number of misses
+CACHE_IL1.replacements         4964 # total number of replacements
+CACHE_IL1.writebacks              0 # total number of writebacks
+CACHE_IL1.invalidations            0 # total number of invalidations
+CACHE_IL1.miss_rate          0.0001 # miss rate (i.e., misses/ref)
+CACHE_IL1.repl_rate          0.0000 # replacement rate (i.e., repls/ref)
+CACHE_IL1.wb_rate            0.0000 # writeback rate (i.e., wrbks/ref)
+CACHE_IL1.inv_rate           0.0000 # invalidation rate (i.e., invs/ref)
+CACHE_DL2.accesses             5476 # total number of accesses
+CACHE_DL2.hits                 3857 # total number of hits
+CACHE_DL2.misses               1619 # total number of misses
+CACHE_DL2.replacements            0 # total number of replacements
+CACHE_DL2.writebacks              0 # total number of writebacks
+CACHE_DL2.invalidations            0 # total number of invalidations
+CACHE_DL2.miss_rate          0.2957 # miss rate (i.e., misses/ref)
+CACHE_DL2.repl_rate          0.0000 # replacement rate (i.e., repls/ref)
+CACHE_DL2.wb_rate            0.0000 # writeback rate (i.e., wrbks/ref)
+CACHE_DL2.inv_rate           0.0000 # invalidation rate (i.e., invs/ref)
+CACHE_DL1.accesses         40386295 # total number of accesses
+CACHE_DL1.hits             39788560 # total number of hits
+CACHE_DL1.misses             597735 # total number of misses
+CACHE_DL1.replacements       597223 # total number of replacements
+CACHE_DL1.writebacks         581164 # total number of writebacks
+CACHE_DL1.invalidations            0 # total number of invalidations
+CACHE_DL1.miss_rate          0.0148 # miss rate (i.e., misses/ref)
+CACHE_DL1.repl_rate          0.0148 # replacement rate (i.e., repls/ref)
+CACHE_DL1.wb_rate            0.0144 # writeback rate (i.e., wrbks/ref)
+CACHE_DL1.inv_rate           0.0000 # invalidation rate (i.e., invs/ref)
+sim_IPC                      1.6925 # instructions per cycle
 MESA:     
 sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:64:64:8:l -cache:dl1 CACHE_DL1:64:64:8:l -cache:il2 CACHE_DL2:1024:64:8:l -fetch:ifqsize 4 -decode:width 8 -issue:width 16 -commit:width 12 -ruu:size 64 -lsq:size 4 -mem:lat 16 2 -mem:width 64 -res:ialu 4 -res:imult 4 -res:memport 3 -res:fpalu 4 -res:fpmult 4 -redir:sim /home/milax/Documents/GitHub/ACPrac1/Resultats/mesa/AMD/AmdMESA_decodeChange.txt /lib/specs2000/mesa/exe/mesa.exe -frames 1000 -meshfile mesa.in -ppmfile mesa.ppm 
 -cache:dl1       CACHE_DL1:64:64:8:l # l1 data cache config, i.e., {<config>|none}
