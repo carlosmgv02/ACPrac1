@@ -61,8 +61,7 @@ modification="_reorderBuffer.txt"
 
 tasca="IntelAMMP"$modification
 echo $tasca
-rm $intelDir
-mkdir $intelDir
+
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \

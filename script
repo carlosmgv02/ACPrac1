@@ -52,7 +52,7 @@ fpmult=3
 
 CACHE_IL1="64:64:8:l"
 CACHE_DL1="64:64:8:l"
-CACHE_L2="2048:64:10:l"
+CACHE_L2="2048:64:8:l"
 
 #AMMP
 cd /lib/specs2000/ammp/data/ref
