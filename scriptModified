@@ -61,7 +61,8 @@ modification="_reorderBuffer.txt"
 
 tasca="IntelAMMP"$modification
 echo $tasca
-
+rm $intelDir
+mkdir $intelDir
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \
@@ -270,11 +271,9 @@ sim-outorder -fastfwd 100000000 \
 -redir:sim $amdDir/$tasca /lib/specs2000/eon/exe/eon.exe chair.control.cook chair.camera chair.surfaces chair.cook.ppm ppm pixels_out.cook > $eon/cook_log.out 2> $eon/cook_log.err
  
  echo "EON:     " >> $dir
- echo "traza1"
 grep "CACHE" $amdDir/$tasca >> $dir
-echo "traza2"
-grep "sim_IPC" $amd/$tasca >> $dir
-echo "traza3"
+grep "sim_IPC" $amdDir/$tasca >> $dir
+
 
 #EQUAKE
 cd /lib/specs2000/equake/data/ref

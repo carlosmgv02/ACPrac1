@@ -1,2 +1,0 @@
-MESA:     
-sim_IPC                      1.9740 # instructions per cycle
