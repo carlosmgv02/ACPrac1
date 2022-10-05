@@ -38,20 +38,28 @@ decode=6
 issue=6
 commit=12
 
-ruu=512
+ruu=1024
 lsq=4
 
 memlat="16 2"
 memwidth=64
 
+ialu=5
+imult=5
+memport=5
+fpalu=3
+fpmult=3
+
 CACHE_IL1="64:64:8:l"
-CACHE_DL1="64:32:8:l"
-CACHE_L2="2048:16384:4:l"
+CACHE_DL1="64:64:8:l"
+CACHE_L2="2048:64:8:l"
 
 #AMMP
 cd /lib/specs2000/ammp/data/ref
 intelDir=$ammp"/Intel"
-tasca="IntelAMMP.txt"
+modification="_reorderBuffer.txt"
+
+tasca="IntelAMMP"$modification
 echo $tasca
 
 sim-outorder -fastfwd 100000000 \
@@ -69,11 +77,13 @@ sim-outorder -fastfwd 100000000 \
 -mem:width $memwidth \
 -redir:sim $intelDir/$tasca /lib/specs2000/ammp/exe/ammp.exe < ammp.in > $ammp/ammp.out 2> $ammp/ammp.err
 
-
+echo "AMMP:     " > $intelDir/"comparison.txt"
+grep "CACHE" $intelDir/$tasca >> $intelDir/"comparison.txt"
+grep "sim_IPC" $intelDir/$tasca >> $intelDir/"comparison.txt"
 #EON
 cd /lib/specs2000/eon/data/ref
 intelDir=$eon"/Intel"
-tasca="IntelEON.txt"
+tasca="IntelEON"$modification
 echo $tasca
 
 sim-outorder -fastfwd 100000000 \
@@ -94,7 +104,7 @@ sim-outorder -fastfwd 100000000 \
 #EQUAKE
 cd /lib/specs2000/equake/data/ref
 intelDir=$equake"/Intel"
-tasca="IntelEQUAKE.txt"
+tasca="IntelEQUAKE"$modification
 echo $tasca
 
 sim-outorder -fastfwd 100000000 \
@@ -116,7 +126,7 @@ sim-outorder -fastfwd 100000000 \
 #GAP
 cd /lib/specs2000/gap/data/ref
 intelDir=$gap/"Intel"
-tasca="IntelGAP.txt"
+tasca="IntelGAP"$modification
 echo $tasca
 
 sim-outorder -fastfwd 100000000 \
@@ -137,7 +147,7 @@ sim-outorder -fastfwd 100000000 \
 #MESA
 cd /lib/specs2000/mesa/data/ref
 intelDir=$mesa/"Intel"
-tasca="IntelMESA.txt"
+tasca="IntelMESA"$modification
 echo $tasca
 
 sim-outorder -fastfwd 100000000 \
@@ -169,16 +179,22 @@ lsq=4
 memwidth=64
 memlat="16 2"
 
-CACHE_IL1="64:32:8:l"
-CACHE_DL1="64:32:8:l"
-CACHE_L2="1024:512:8:l"
+ialu=4
+imult=4
+memport=3
+fpalu=4
+fpmult=4
+
+CACHE_IL1="64:64:8:l"
+CACHE_DL1="64:64:8:l"
+CACHE_L2="1024:64:8:l"
 
 
 
 #AMMP
 cd /lib/specs2000/ammp/data/ref
 amdDir=$ammp"/AMD"
-tasca="AmdAMMP.txt"
+tasca="AmdAMMP"$modification
 echo $tasca
 
 sim-outorder -fastfwd 100000000 \
@@ -194,6 +210,11 @@ sim-outorder -fastfwd 100000000 \
 -lsq:size $lsq \
 -mem:lat $memlat \
 -mem:width $memwidth \
+-res:ialu $ialu \
+-res:imult $imult \
+-res:memport $memport \
+-res:fpalu $fpalu \
+-res:fpmult $fpmult \
 -redir:sim $amdDir/$tasca /lib/specs2000/ammp/exe/ammp.exe < ammp.in > $ammp/ammp.out 2> $ammp/ammp.err
 
 
@@ -201,7 +222,7 @@ sim-outorder -fastfwd 100000000 \
 
 cd /lib/specs2000/ammp/data/ref
 amdDir=$eon"/AMD"
-tasca="AmdEON.txt"
+tasca="AmdEON"$modification
 echo $tasca
 
 sim-outorder -fastfwd 100000000 \
@@ -217,12 +238,17 @@ sim-outorder -fastfwd 100000000 \
 -lsq:size $lsq \
 -mem:lat $memlat \
 -mem:width $memwidth \
+-res:ialu $ialu \
+-res:imult $imult \
+-res:memport $memport \
+-res:fpalu $fpalu \
+-res:fpmult $fpmult \
 -redir:sim $amdDir/$tasca /lib/specs2000/eon/exe/eon.exe chair.control.cook chair.camera chair.surfaces chair.cook.ppm ppm pixels_out.cook > $eon/cook_log.out 2> $eon/cook_log.err
  
 #EQUAKE
 cd /lib/specs2000/equake/data/ref
 amdDir=$equake"/AMD"
-tasca="AmdEQUAKE.txt"
+tasca="AmdEQUAKE"$modification
 echo $tasca
 
 sim-outorder -fastfwd 100000000 \
@@ -238,13 +264,18 @@ sim-outorder -fastfwd 100000000 \
 -lsq:size $lsq \
 -mem:lat $memlat \
 -mem:width $memwidth \
+-res:ialu $ialu \
+-res:imult $imult \
+-res:memport $memport \
+-res:fpalu $fpalu \
+-res:fpmult $fpmult \
 -redir:sim $amdDir/$tasca /lib/specs2000/equake/exe/equake.exe < inp.in > $equake/inp.out 2> $equake/inp.err
     
     
 #GAP
 cd /lib/specs2000/gap/data/ref
 amdDir=$gap"/AMD"
-tasca="AmdGAP.txt"
+tasca="AmdGAP"$modification
 echo $tasca
 
 sim-outorder -fastfwd 100000000 \
@@ -260,12 +291,17 @@ sim-outorder -fastfwd 100000000 \
 -lsq:size $lsq \
 -mem:lat $memlat \
 -mem:width $memwidth \
+-res:ialu $ialu \
+-res:imult $imult \
+-res:memport $memport \
+-res:fpalu $fpalu \
+-res:fpmult $fpmult \
 -redir:sim $amdDir/$tasca /lib/specs2000/gap/exe/gap.exe -l /usr/lib/specs2000/gap/data/all -q -m 192M < ref.in > $gap/ref.out 2> $gap/ref.err
 
 #MESA
 cd /lib/specs2000/mesa/data/ref
 amdDir=$mesa"/AMD"
-tasca="AmdMESA.txt"
+tasca="AmdMESA"$modification
 echo $tasca
 
 sim-outorder -fastfwd 100000000 \
@@ -281,5 +317,10 @@ sim-outorder -fastfwd 100000000 \
 -lsq:size $lsq \
 -mem:lat $memlat \
 -mem:width $memwidth \
+-res:ialu $ialu \
+-res:imult $imult \
+-res:memport $memport \
+-res:fpalu $fpalu \
+-res:fpmult $fpmult \
 -redir:sim $amdDir/$tasca /lib/specs2000/mesa/exe/mesa.exe -frames 1000 -meshfile mesa.in -ppmfile mesa.ppm
 
