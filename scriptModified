@@ -244,7 +244,7 @@ grep "sim_IPC" $amdDir/$tasca >> $dir
 
 #EON
 
-cd /lib/specs2000/ammp/data/ref
+cd /lib/specs2000/eon/data/ref
 amdDir=$eon"/AMD"
 tasca="AmdEON"$modification
 echo $tasca

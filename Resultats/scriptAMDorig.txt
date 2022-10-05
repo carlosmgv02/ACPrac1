@@ -3,8 +3,8 @@ sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il
 -cache:dl1       CACHE_DL1:64:64:8:l # l1 data cache config, i.e., {<config>|none}
 -cache:il1       CACHE_IL1:64:64:8:l # l1 inst cache config, i.e., {<config>|dl1|dl2|none}
 -cache:il2       CACHE_DL2:1024:64:8:l # l2 instruction cache config, i.e., {<config>|dl2|none}
-CACHE_IL1.accesses        109452842 # total number of accesses
-CACHE_IL1.hits            109452602 # total number of hits
+CACHE_IL1.accesses        109452829 # total number of accesses
+CACHE_IL1.hits            109452589 # total number of hits
 CACHE_IL1.misses                240 # total number of misses
 CACHE_IL1.replacements            0 # total number of replacements
 CACHE_IL1.writebacks              0 # total number of writebacks
@@ -23,8 +23,8 @@ CACHE_DL2.miss_rate          1.0000 # miss rate (i.e., misses/ref)
 CACHE_DL2.repl_rate          0.0000 # replacement rate (i.e., repls/ref)
 CACHE_DL2.wb_rate            0.0000 # writeback rate (i.e., wrbks/ref)
 CACHE_DL2.inv_rate           0.0000 # invalidation rate (i.e., invs/ref)
-CACHE_DL1.accesses         30317279 # total number of accesses
-CACHE_DL1.hits             26976163 # total number of hits
+CACHE_DL1.accesses         30317281 # total number of accesses
+CACHE_DL1.hits             26976165 # total number of hits
 CACHE_DL1.misses            3341116 # total number of misses
 CACHE_DL1.replacements      3340604 # total number of replacements
 CACHE_DL1.writebacks          31862 # total number of writebacks
@@ -74,8 +74,8 @@ EQUAKE:
 sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:64:64:8:l -cache:dl1 CACHE_DL1:64:64:8:l -cache:il2 CACHE_DL2:1024:64:8:l -fetch:ifqsize 4 -decode:width 4 -issue:width 16 -commit:width 12 -ruu:size 64 -lsq:size 4 -mem:lat 16 2 -mem:width 64 -res:ialu 4 -res:imult 4 -res:memport 3 -res:fpalu 4 -res:fpmult 4 -redir:sim /home/milax/Documents/GitHub/ACPrac1/Resultats/equake/AMD/AmdEQUAKE.txt /lib/specs2000/equake/exe/equake.exe 
 -cache:dl1       CACHE_DL1:64:64:8:l # l1 data cache config, i.e., {<config>|none}
 -cache:il1       CACHE_IL1:64:64:8:l # l1 inst cache config, i.e., {<config>|dl1|dl2|none}
-CACHE_IL1.accesses        107353113 # total number of accesses
-CACHE_IL1.hits            107352910 # total number of hits
+CACHE_IL1.accesses        107353066 # total number of accesses
+CACHE_IL1.hits            107352863 # total number of hits
 CACHE_IL1.misses                203 # total number of misses
 CACHE_IL1.replacements            0 # total number of replacements
 CACHE_IL1.writebacks              0 # total number of writebacks
@@ -94,8 +94,8 @@ CACHE_DL2.miss_rate          1.0000 # miss rate (i.e., misses/ref)
 CACHE_DL2.repl_rate          0.0000 # replacement rate (i.e., repls/ref)
 CACHE_DL2.wb_rate            0.0000 # writeback rate (i.e., wrbks/ref)
 CACHE_DL2.inv_rate           0.0000 # invalidation rate (i.e., invs/ref)
-CACHE_DL1.accesses         35983619 # total number of accesses
-CACHE_DL1.hits             35976378 # total number of hits
+CACHE_DL1.accesses         35983617 # total number of accesses
+CACHE_DL1.hits             35976376 # total number of hits
 CACHE_DL1.misses               7241 # total number of misses
 CACHE_DL1.replacements         6729 # total number of replacements
 CACHE_DL1.writebacks           5265 # total number of writebacks
@@ -110,8 +110,8 @@ sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il
 -cache:dl1       CACHE_DL1:64:64:8:l # l1 data cache config, i.e., {<config>|none}
 -cache:il1       CACHE_IL1:64:64:8:l # l1 inst cache config, i.e., {<config>|dl1|dl2|none}
 -cache:il2       CACHE_DL2:1024:64:8:l # l2 instruction cache config, i.e., {<config>|dl2|none}
-CACHE_IL1.accesses        106536805 # total number of accesses
-CACHE_IL1.hits            106531329 # total number of hits
+CACHE_IL1.accesses        106536804 # total number of accesses
+CACHE_IL1.hits            106531328 # total number of hits
 CACHE_IL1.misses               5476 # total number of misses
 CACHE_IL1.replacements         4964 # total number of replacements
 CACHE_IL1.writebacks              0 # total number of writebacks
@@ -130,11 +130,11 @@ CACHE_DL2.miss_rate          0.2957 # miss rate (i.e., misses/ref)
 CACHE_DL2.repl_rate          0.0000 # replacement rate (i.e., repls/ref)
 CACHE_DL2.wb_rate            0.0000 # writeback rate (i.e., wrbks/ref)
 CACHE_DL2.inv_rate           0.0000 # invalidation rate (i.e., invs/ref)
-CACHE_DL1.accesses         40386285 # total number of accesses
-CACHE_DL1.hits             39788551 # total number of hits
-CACHE_DL1.misses             597734 # total number of misses
-CACHE_DL1.replacements       597222 # total number of replacements
-CACHE_DL1.writebacks         581163 # total number of writebacks
+CACHE_DL1.accesses         40386295 # total number of accesses
+CACHE_DL1.hits             39788560 # total number of hits
+CACHE_DL1.misses             597735 # total number of misses
+CACHE_DL1.replacements       597223 # total number of replacements
+CACHE_DL1.writebacks         581164 # total number of writebacks
 CACHE_DL1.invalidations            0 # total number of invalidations
 CACHE_DL1.miss_rate          0.0148 # miss rate (i.e., misses/ref)
 CACHE_DL1.repl_rate          0.0148 # replacement rate (i.e., repls/ref)
@@ -146,9 +146,9 @@ sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il
 -cache:dl1       CACHE_DL1:64:64:8:l # l1 data cache config, i.e., {<config>|none}
 -cache:il1       CACHE_IL1:64:64:8:l # l1 inst cache config, i.e., {<config>|dl1|dl2|none}
 -cache:il2       CACHE_DL2:1024:64:8:l # l2 instruction cache config, i.e., {<config>|dl2|none}
-CACHE_IL1.accesses        107948073 # total number of accesses
-CACHE_IL1.hits            107947909 # total number of hits
-CACHE_IL1.misses                164 # total number of misses
+CACHE_IL1.accesses        107948020 # total number of accesses
+CACHE_IL1.hits            107947855 # total number of hits
+CACHE_IL1.misses                165 # total number of misses
 CACHE_IL1.replacements            0 # total number of replacements
 CACHE_IL1.writebacks              0 # total number of writebacks
 CACHE_IL1.invalidations            0 # total number of invalidations
@@ -156,9 +156,9 @@ CACHE_IL1.miss_rate          0.0000 # miss rate (i.e., misses/ref)
 CACHE_IL1.repl_rate          0.0000 # replacement rate (i.e., repls/ref)
 CACHE_IL1.wb_rate            0.0000 # writeback rate (i.e., wrbks/ref)
 CACHE_IL1.inv_rate           0.0000 # invalidation rate (i.e., invs/ref)
-CACHE_DL2.accesses              164 # total number of accesses
+CACHE_DL2.accesses              165 # total number of accesses
 CACHE_DL2.hits                    0 # total number of hits
-CACHE_DL2.misses                164 # total number of misses
+CACHE_DL2.misses                165 # total number of misses
 CACHE_DL2.replacements            0 # total number of replacements
 CACHE_DL2.writebacks              0 # total number of writebacks
 CACHE_DL2.invalidations            0 # total number of invalidations
@@ -166,8 +166,8 @@ CACHE_DL2.miss_rate          1.0000 # miss rate (i.e., misses/ref)
 CACHE_DL2.repl_rate          0.0000 # replacement rate (i.e., repls/ref)
 CACHE_DL2.wb_rate            0.0000 # writeback rate (i.e., wrbks/ref)
 CACHE_DL2.inv_rate           0.0000 # invalidation rate (i.e., invs/ref)
-CACHE_DL1.accesses         35673570 # total number of accesses
-CACHE_DL1.hits             35671523 # total number of hits
+CACHE_DL1.accesses         35673572 # total number of accesses
+CACHE_DL1.hits             35671525 # total number of hits
 CACHE_DL1.misses               2047 # total number of misses
 CACHE_DL1.replacements         1535 # total number of replacements
 CACHE_DL1.writebacks           1535 # total number of writebacks
