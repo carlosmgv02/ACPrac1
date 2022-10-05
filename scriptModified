@@ -238,7 +238,7 @@ sim-outorder -fastfwd 100000000 \
 
 dir="/home/milax/Documents/GitHub/ACPrac1/Resultats/comparisonAMD.txt"
 
-echo "MESA:     " > $dir
+echo "AMMP:     " > $dir
 grep "CACHE" $amdDir/$tasca >> $dir
 grep "sim_IPC" $amdDir/$tasca >> $dir
 
