@@ -50,14 +50,20 @@ memport=5
 fpalu=3
 fpmult=3
 
+<<<<<<< HEAD
 CACHE_IL1="64:128:8:l"
 CACHE_DL1="64:128:8:l"
 CACHE_L2="2048:128:8:l"
+=======
+CACHE_IL1="64:64:8:l"
+CACHE_DL1="64:64:8:l"
+CACHE_L2="4096:64:8:l"
+>>>>>>> 5216c785e54188e522edb93bf951712a4d855d42
 
 #AMMP
 cd /lib/specs2000/ammp/data/ref
 intelDir=$ammp"/Intel"
-modification="_reorderBuffer.txt"
+modification="_cacheSize.txt"
 
 tasca="IntelAMMP"$modification
 echo $tasca
@@ -202,15 +208,21 @@ memport=3
 fpalu=4
 fpmult=4
 
+<<<<<<< HEAD
 CACHE_IL1="64:128:8:l"
 CACHE_DL1="64:128:8:l"
 CACHE_L2="1024:128:8:l"
+=======
+CACHE_IL1="64:64:8:l"
+CACHE_DL1="64:64:8:l"
+CACHE_L2="2048:64:8:l"
+>>>>>>> 5216c785e54188e522edb93bf951712a4d855d42
 
 
 
 #AMMP
 
-modification="_decodeChange.txt"
+modification="_cacheSize.txt"
 cd /lib/specs2000/ammp/data/ref
 amdDir=$ammp"/AMD"
 tasca="AmdAMMP"$modification
