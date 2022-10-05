@@ -8,7 +8,7 @@ of SimpleScalar, LLC (info@simplescalar.com).
 warning: section `.comment' ignored...
 sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:64:64:8:l -cache:dl1 CACHE_DL1:64:64:8:l -cache:il2 CACHE_DL2:1024:64:8:l -fetch:ifqsize 4 -decode:width 4 -issue:width 16 -commit:width 12 -ruu:size 64 -lsq:size 4 -mem:lat 16 2 -mem:width 64 -res:ialu 4 -res:imult 4 -res:memport 3 -res:fpalu 4 -res:fpmult 4 -redir:sim /home/milax/Documents/GitHub/ACPrac1/Resultats/eon/AMD/AmdEON.txt /lib/specs2000/eon/exe/eon.exe chair.control.cook chair.camera chair.surfaces chair.cook.ppm ppm pixels_out.cook 
 
-sim: simulation started @ Wed Oct  5 19:29:46 2022, options follow:
+sim: simulation started @ Wed Oct  5 22:42:49 2022, options follow:
 
 sim-outorder: This simulator implements a very detailed out-of-order issue
 superscalar processor with a two-level memory system and speculative
@@ -153,8 +153,8 @@ sim_num_refs               45809997 # total number of loads and stores committed
 sim_num_loads              26441678 # total number of loads committed
 sim_num_stores         19368319.0000 # total number of stores committed
 sim_num_branches           10337355 # total number of branches committed
-sim_elapsed_time                 33 # total simulation time in seconds
-sim_inst_rate          3030303.0606 # simulation speed (in insts/sec)
+sim_elapsed_time                 43 # total simulation time in seconds
+sim_inst_rate          2325581.4186 # simulation speed (in insts/sec)
 sim_total_insn            105091064 # total number of instructions executed
 sim_total_refs             47725628 # total number of loads and stores executed
 sim_total_loads            27974610 # total number of loads executed
@@ -276,6 +276,6 @@ ld_target_big_endian              0 # target executable endian-ness, non-zero if
 mem.page_count                  171 # total number of pages allocated
 mem.page_mem                  1368k # total size of memory pages allocated
 mem.ptab_misses              202102 # total first level page table misses
-mem.ptab_accesses        1695025472 # total page table accesses
+mem.ptab_accesses        1695025470 # total page table accesses
 mem.ptab_miss_rate           0.0001 # first level page table miss rate
 

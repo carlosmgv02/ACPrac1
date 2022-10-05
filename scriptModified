@@ -38,8 +38,8 @@ decode=6
 issue=6
 commit=12
 
-ruu=1024
-lsq=8
+ruu=512
+lsq=4
 
 memlat="16 2"
 memwidth=64
@@ -52,12 +52,12 @@ fpmult=3
 
 CACHE_IL1="64:64:8:l"
 CACHE_DL1="64:64:8:l"
-CACHE_L2="2048:64:8:l"
+CACHE_L2="4096:64:8:l"
 
 #AMMP
 cd /lib/specs2000/ammp/data/ref
 intelDir=$ammp"/Intel"
-modification="_reorderBuffer.txt"
+modification="_cacheSize.txt"
 
 tasca="IntelAMMP"$modification
 echo $tasca
@@ -191,7 +191,7 @@ issue=16
 commit=12
 
 ruu=64
-lsq=8
+lsq=4
 
 memwidth=64
 memlat="16 2"
@@ -204,13 +204,13 @@ fpmult=4
 
 CACHE_IL1="64:64:8:l"
 CACHE_DL1="64:64:8:l"
-CACHE_L2="1024:64:8:l"
+CACHE_L2="2048:64:8:l"
 
 
 
 #AMMP
 
-modification="_decodeChange.txt"
+modification="_cacheSize.txt"
 cd /lib/specs2000/ammp/data/ref
 amdDir=$ammp"/AMD"
 tasca="AmdAMMP"$modification
