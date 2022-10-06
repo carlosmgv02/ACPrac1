@@ -32,12 +32,12 @@ com
 #Intel
 
 fetch=8
-decode=8
-issue=8
+decode=6
+issue=6
 commit=12
 
 ruu=512
-lsq=4
+lsq=8
 
 memlat="16 2"
 memwidth=64
@@ -62,6 +62,7 @@ echo $tasca
 
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
+-cache:dl1lat 5 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \
 -cache:dl1 CACHE_DL1:$CACHE_DL1 \
 -cache:il2 CACHE_DL2:$CACHE_L2 \
@@ -89,6 +90,7 @@ echo $tasca
 
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
+-cache:dl1lat 5 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \
 -cache:dl1 CACHE_DL1:$CACHE_DL1 \
 -cache:il2 CACHE_DL2:$CACHE_L2 \
@@ -114,6 +116,7 @@ echo $tasca
 
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
+-cache:dl1lat 5 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \
 -cache:dl1 CACHE_DL1:$CACHE_DL1 \
 -cache:il2 CACHE_DL2:$CACHE_L2 \
@@ -139,6 +142,7 @@ echo $tasca
 
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
+-cache:dl1lat 5 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \
 -cache:dl1 CACHE_DL1:$CACHE_DL1 \
 -cache:il2 CACHE_DL2:$CACHE_L2 \
@@ -164,6 +168,7 @@ echo $tasca
 
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
+-cache:dl1lat 5 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \
 -cache:dl1 CACHE_DL1:$CACHE_DL1 \
 -cache:il2 CACHE_DL2:$CACHE_L2 \
@@ -184,12 +189,12 @@ grep "sim_IPC" $intelDir/$tasca >> $dir
      #AMD
 
 fetch=4
-decode=6
-issue=18
+decode=4
+issue=16
 commit=12
 
 ruu=256
-lsq=4
+lsq=8
 
 memwidth=64
 memlat="16 2"
@@ -216,6 +221,7 @@ echo $tasca
 
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
+-cache:dl1lat 5 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \
 -cache:dl1 CACHE_DL1:$CACHE_DL1 \
 -cache:il2 CACHE_DL2:$CACHE_L2 \
@@ -249,6 +255,7 @@ echo $tasca
 
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
+-cache:dl1lat 5 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \
 -cache:dl1 CACHE_DL1:$CACHE_DL1 \
 -cache:il2 CACHE_DL2:$CACHE_L2 \
@@ -280,6 +287,7 @@ echo $tasca
 
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
+-cache:dl1lat 5 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \
 -cache:dl1 CACHE_DL1:$CACHE_DL1 \
 -cache:il2 CACHE_DL2:$CACHE_L2 \
@@ -310,6 +318,7 @@ echo $tasca
 
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
+-cache:dl1lat 5 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \
 -cache:dl1 CACHE_DL1:$CACHE_DL1 \
 -cache:il2 CACHE_DL2:$CACHE_L2 \
@@ -341,6 +350,7 @@ echo $tasca
 
 sim-outorder -fastfwd 100000000 \
 -max:inst 100000000 \
+-cache:dl1lat 5 \
 -cache:il1 CACHE_IL1:$CACHE_IL1 \
 -cache:dl1 CACHE_DL1:$CACHE_DL1 \
 -cache:il2 CACHE_DL2:$CACHE_L2 \
