@@ -73,6 +73,7 @@ latency of all pipeline operations.
   Pipetrace range arguments are formatted as follows:
 
     {{@|#}<start>}:{{@|#|+}<end>}
+
   Both ends of the range are optional, if neither are specified, the entire
   execution is traced.  Ranges that start with a `@' designate an address
   range to be traced, those that start with an `#' designate a cycle count
