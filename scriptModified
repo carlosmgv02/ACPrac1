@@ -32,12 +32,12 @@ com
 #Intel
 
 fetch=8
-decode=6
-issue=6
+decode=8
+issue=8
 commit=12
 
-ruu=1024
-lsq=8
+ruu=512
+lsq=4
 
 memlat="16 2"
 memwidth=64
@@ -184,12 +184,12 @@ grep "sim_IPC" $intelDir/$tasca >> $dir
      #AMD
 
 fetch=4
-decode=4
-issue=16
+decode=6
+issue=18
 commit=12
 
-ruu=512
-lsq=8
+ruu=256
+lsq=4
 
 memwidth=64
 memlat="16 2"
