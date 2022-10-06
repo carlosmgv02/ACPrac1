@@ -188,7 +188,7 @@ decode=4
 issue=16
 commit=12
 
-ruu=64
+ruu=256
 lsq=4
 
 memwidth=64

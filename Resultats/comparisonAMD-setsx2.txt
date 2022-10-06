@@ -1,5 +1,5 @@
 AMMP:     
-sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:128:64:8:l -cache:dl1 CACHE_DL1:128:64:8:l -cache:il2 CACHE_DL2:2048:64:8:l -fetch:ifqsize 4 -decode:width 8 -issue:width 16 -commit:width 12 -ruu:size 64 -lsq:size 4 -mem:lat 16 2 -mem:width 64 -res:ialu 4 -res:imult 4 -res:memport 3 -res:fpalu 4 -res:fpmult 4 -redir:sim /home/milax/Documents/GitHub/ACPrac1/Resultats/ammp/AMD/AmdAMMP_decodeChange.txt /lib/specs2000/ammp/exe/ammp.exe 
+sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:128:64:8:l -cache:dl1 CACHE_DL1:128:64:8:l -cache:il2 CACHE_DL2:2048:64:8:l -fetch:ifqsize 4 -decode:width 8 -issue:width 16 -commit:width 12 -ruu:size 256 -lsq:size 4 -mem:lat 16 2 -mem:width 64 -res:ialu 4 -res:imult 4 -res:memport 3 -res:fpalu 4 -res:fpmult 4 -redir:sim /home/milax/Documents/GitHub/ACPrac1/Resultats/ammp/AMD/AmdAMMP_cacheSize.txt /lib/specs2000/ammp/exe/ammp.exe 
 -cache:dl1       CACHE_DL1:128:64:8:l # l1 data cache config, i.e., {<config>|none}
 -cache:il1       CACHE_IL1:128:64:8:l # l1 inst cache config, i.e., {<config>|dl1|dl2|none}
 -cache:il2       CACHE_DL2:2048:64:8:l # l2 instruction cache config, i.e., {<config>|dl2|none}
@@ -35,7 +35,7 @@ CACHE_DL1.wb_rate            0.0010 # writeback rate (i.e., wrbks/ref)
 CACHE_DL1.inv_rate           0.0000 # invalidation rate (i.e., invs/ref)
 sim_IPC                      0.7934 # instructions per cycle
 EON:     
-sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:128:64:8:l -cache:dl1 CACHE_DL1:128:64:8:l -cache:il2 CACHE_DL2:2048:64:8:l -fetch:ifqsize 4 -decode:width 8 -issue:width 16 -commit:width 12 -ruu:size 64 -lsq:size 4 -mem:lat 16 2 -mem:width 64 -res:ialu 4 -res:imult 4 -res:memport 3 -res:fpalu 4 -res:fpmult 4 -redir:sim /home/milax/Documents/GitHub/ACPrac1/Resultats/eon/AMD/AmdEON_decodeChange.txt /lib/specs2000/eon/exe/eon.exe chair.control.cook chair.camera chair.surfaces chair.cook.ppm ppm pixels_out.cook 
+sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:128:64:8:l -cache:dl1 CACHE_DL1:128:64:8:l -cache:il2 CACHE_DL2:2048:64:8:l -fetch:ifqsize 4 -decode:width 8 -issue:width 16 -commit:width 12 -ruu:size 256 -lsq:size 4 -mem:lat 16 2 -mem:width 64 -res:ialu 4 -res:imult 4 -res:memport 3 -res:fpalu 4 -res:fpmult 4 -redir:sim /home/milax/Documents/GitHub/ACPrac1/Resultats/eon/AMD/AmdEON_cacheSize.txt /lib/specs2000/eon/exe/eon.exe chair.control.cook chair.camera chair.surfaces chair.cook.ppm ppm pixels_out.cook 
 -cache:dl1       CACHE_DL1:128:64:8:l # l1 data cache config, i.e., {<config>|none}
 -cache:il1       CACHE_IL1:128:64:8:l # l1 inst cache config, i.e., {<config>|dl1|dl2|none}
 -cache:il2       CACHE_DL2:2048:64:8:l # l2 instruction cache config, i.e., {<config>|dl2|none}
@@ -71,12 +71,12 @@ CACHE_DL1.wb_rate            0.0000 # writeback rate (i.e., wrbks/ref)
 CACHE_DL1.inv_rate           0.0000 # invalidation rate (i.e., invs/ref)
 sim_IPC                      1.4429 # instructions per cycle
 EQUAKE:     
-sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:128:64:8:l -cache:dl1 CACHE_DL1:128:64:8:l -cache:il2 CACHE_DL2:2048:64:8:l -fetch:ifqsize 4 -decode:width 8 -issue:width 16 -commit:width 12 -ruu:size 64 -lsq:size 4 -mem:lat 16 2 -mem:width 64 -res:ialu 4 -res:imult 4 -res:memport 3 -res:fpalu 4 -res:fpmult 4 -redir:sim /home/milax/Documents/GitHub/ACPrac1/Resultats/equake/AMD/AmdEQUAKE_decodeChange.txt /lib/specs2000/equake/exe/equake.exe 
+sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:128:64:8:l -cache:dl1 CACHE_DL1:128:64:8:l -cache:il2 CACHE_DL2:2048:64:8:l -fetch:ifqsize 4 -decode:width 8 -issue:width 16 -commit:width 12 -ruu:size 256 -lsq:size 4 -mem:lat 16 2 -mem:width 64 -res:ialu 4 -res:imult 4 -res:memport 3 -res:fpalu 4 -res:fpmult 4 -redir:sim /home/milax/Documents/GitHub/ACPrac1/Resultats/equake/AMD/AmdEQUAKE_cacheSize.txt /lib/specs2000/equake/exe/equake.exe 
 -cache:dl1       CACHE_DL1:128:64:8:l # l1 data cache config, i.e., {<config>|none}
 -cache:il1       CACHE_IL1:128:64:8:l # l1 inst cache config, i.e., {<config>|dl1|dl2|none}
 -cache:il2       CACHE_DL2:2048:64:8:l # l2 instruction cache config, i.e., {<config>|dl2|none}
-CACHE_IL1.accesses        107353066 # total number of accesses
-CACHE_IL1.hits            107352863 # total number of hits
+CACHE_IL1.accesses        107353070 # total number of accesses
+CACHE_IL1.hits            107352867 # total number of hits
 CACHE_IL1.misses                203 # total number of misses
 CACHE_IL1.replacements            0 # total number of replacements
 CACHE_IL1.writebacks              0 # total number of writebacks
@@ -107,12 +107,12 @@ CACHE_DL1.wb_rate            0.0001 # writeback rate (i.e., wrbks/ref)
 CACHE_DL1.inv_rate           0.0000 # invalidation rate (i.e., invs/ref)
 sim_IPC                      1.9768 # instructions per cycle
 GAP:     
-sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:128:64:8:l -cache:dl1 CACHE_DL1:128:64:8:l -cache:il2 CACHE_DL2:2048:64:8:l -fetch:ifqsize 4 -decode:width 8 -issue:width 16 -commit:width 12 -ruu:size 64 -lsq:size 4 -mem:lat 16 2 -mem:width 64 -res:ialu 4 -res:imult 4 -res:memport 3 -res:fpalu 4 -res:fpmult 4 -redir:sim /home/milax/Documents/GitHub/ACPrac1/Resultats/gap/AMD/AmdGAP_decodeChange.txt /lib/specs2000/gap/exe/gap.exe -l /usr/lib/specs2000/gap/data/all -q -m 192M 
+sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:128:64:8:l -cache:dl1 CACHE_DL1:128:64:8:l -cache:il2 CACHE_DL2:2048:64:8:l -fetch:ifqsize 4 -decode:width 8 -issue:width 16 -commit:width 12 -ruu:size 256 -lsq:size 4 -mem:lat 16 2 -mem:width 64 -res:ialu 4 -res:imult 4 -res:memport 3 -res:fpalu 4 -res:fpmult 4 -redir:sim /home/milax/Documents/GitHub/ACPrac1/Resultats/gap/AMD/AmdGAP_cacheSize.txt /lib/specs2000/gap/exe/gap.exe -l /usr/lib/specs2000/gap/data/all -q -m 192M 
 -cache:dl1       CACHE_DL1:128:64:8:l # l1 data cache config, i.e., {<config>|none}
 -cache:il1       CACHE_IL1:128:64:8:l # l1 inst cache config, i.e., {<config>|dl1|dl2|none}
 -cache:il2       CACHE_DL2:2048:64:8:l # l2 instruction cache config, i.e., {<config>|dl2|none}
-CACHE_IL1.accesses        106536718 # total number of accesses
-CACHE_IL1.hits            106534632 # total number of hits
+CACHE_IL1.accesses        106537614 # total number of accesses
+CACHE_IL1.hits            106535528 # total number of hits
 CACHE_IL1.misses               2086 # total number of misses
 CACHE_IL1.replacements         1063 # total number of replacements
 CACHE_IL1.writebacks              0 # total number of writebacks
@@ -143,7 +143,7 @@ CACHE_DL1.wb_rate            0.0143 # writeback rate (i.e., wrbks/ref)
 CACHE_DL1.inv_rate           0.0000 # invalidation rate (i.e., invs/ref)
 sim_IPC                      1.6935 # instructions per cycle
 MESA:     
-sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:128:64:8:l -cache:dl1 CACHE_DL1:128:64:8:l -cache:il2 CACHE_DL2:2048:64:8:l -fetch:ifqsize 4 -decode:width 8 -issue:width 16 -commit:width 12 -ruu:size 64 -lsq:size 4 -mem:lat 16 2 -mem:width 64 -res:ialu 4 -res:imult 4 -res:memport 3 -res:fpalu 4 -res:fpmult 4 -redir:sim /home/milax/Documents/GitHub/ACPrac1/Resultats/mesa/AMD/AmdMESA_decodeChange.txt /lib/specs2000/mesa/exe/mesa.exe -frames 1000 -meshfile mesa.in -ppmfile mesa.ppm 
+sim: command line: sim-outorder -fastfwd 100000000 -max:inst 100000000 -cache:il1 CACHE_IL1:128:64:8:l -cache:dl1 CACHE_DL1:128:64:8:l -cache:il2 CACHE_DL2:2048:64:8:l -fetch:ifqsize 4 -decode:width 8 -issue:width 16 -commit:width 12 -ruu:size 256 -lsq:size 4 -mem:lat 16 2 -mem:width 64 -res:ialu 4 -res:imult 4 -res:memport 3 -res:fpalu 4 -res:fpmult 4 -redir:sim /home/milax/Documents/GitHub/ACPrac1/Resultats/mesa/AMD/AmdMESA_cacheSize.txt /lib/specs2000/mesa/exe/mesa.exe -frames 1000 -meshfile mesa.in -ppmfile mesa.ppm 
 -cache:dl1       CACHE_DL1:128:64:8:l # l1 data cache config, i.e., {<config>|none}
 -cache:il1       CACHE_IL1:128:64:8:l # l1 inst cache config, i.e., {<config>|dl1|dl2|none}
 -cache:il2       CACHE_DL2:2048:64:8:l # l2 instruction cache config, i.e., {<config>|dl2|none}
