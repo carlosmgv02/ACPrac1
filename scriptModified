@@ -36,8 +36,8 @@ decode=6
 issue=6
 commit=12
 
-ruu=512
-lsq=4
+ruu=1024
+lsq=8
 
 memlat="16 2"
 memwidth=64
@@ -188,8 +188,8 @@ decode=4
 issue=16
 commit=12
 
-ruu=256
-lsq=4
+ruu=512
+lsq=8
 
 memwidth=64
 memlat="16 2"
